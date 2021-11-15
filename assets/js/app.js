@@ -38,15 +38,15 @@ model.stuff = await stuff.json();
 console.log(model.stuff);
 model.renderList();
 
-
 let searchInput = document.querySelector('#search');
-    searchInput.addEventListener("input", function(){
-        model.search = searchInput.value;
-        model.renderList();
-    });
-
 let sortUp = document.querySelector('#sort-up');
 let sortDown = document.querySelector('#sort-down');
+
+
+searchInput.addEventListener("input", function(){
+    model.search = searchInput.value;
+    model.renderList();
+});
 
 sortUp.addEventListener("click", function(){
     model.sort = true;
