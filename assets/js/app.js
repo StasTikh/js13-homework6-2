@@ -21,7 +21,9 @@ let model = {
             }
         }
         let tag = document.querySelector('#marketPlace');
-        tag.innerHTML = resultList.map(item => `
+      
+        if(resultList.length) {  
+            tag.innerHTML = resultList.map(item => `
                             <div class="card m-2 shadow p-3 mb-5 bg-white rounded">
                                     <img src="${item.image}" class="mx-auto" title="${item.title}">
                                 <div class="card-body">
@@ -30,7 +32,11 @@ let model = {
                                     <h4 class="text-end">$${item.price}</h4>
                                 </div>
                             </div>
-    `).join("")}
+            `).join("")
+        } else {
+            tag.innerHTML =  `<h1 class="text-center mb-3">Not found</h1>`
+        }
+    }  
 }
 
 let stuff = await fetch(marketURL);
